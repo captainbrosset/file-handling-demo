@@ -1,4 +1,4 @@
-# Web File Handling Demo
+# [Web File Handling Demo](https://cranky-shaw-fe95e8.netlify.app/)
 
 Demo app showing different ways to handle files on the web.
 
