@@ -1,0 +1,52 @@
+{
+    "lang": "en-us",
+    "name": "Web File Handler",
+    "short_name": "Web File",
+    "description": "Demo app showing different ways to handle files on the web",
+    "scope": "/",
+    "start_url": "/",
+    "background_color": "#FFFFFF",
+    "theme_color": "#d5c1ec",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/assets/icon-128.png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/assets/icon-256.png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/assets/icon-512.png",
+            "sizes": "512x512"
+        }
+    ],
+    "share_target": {
+        "action": "/share-target",
+        "method": "POST",
+        "enctype": "multipart/form-data",
+        "params": {
+            "title": "title",
+            "files": [
+                {
+                    "name": "file",
+                    "accept": [
+                        "text/*"
+                    ]
+                }
+            ]
+        }
+    },
+    "file_handlers": [
+        {
+            "action": "/",
+            "accept": {
+                "text/*": [
+                    ".txt"
+                ]
+            }
+        }
+    ]
+}

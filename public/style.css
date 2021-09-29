@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+:root {
+  --theme: #d5c1ec;
+  --transparency: #f8eff754;
+  --highlight: #f4eff4;
+  --text: black;
+}
+
+html {
+  background: url(/assets/back.png);
+}
+
+html,
+button,
+input,
+textarea {
+  font-family: 'Handlee', cursive;
+  font-size: 13pt;
+  color: var(--text);
+}
+
+html,
+body {
+  margin: 0;
+}
+
+.button {
+  padding: .5rem;
+  background: var(--theme);
+  font-weight: bold;
+  border: none;
+  border-radius: .2rem;
+  cursor: pointer;
+}
+
+.button[disabled] {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.button:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid #1b72ce;
+}
+
+main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 15rem 1fr 15rem;
+}
+
+.content-wrapper {
+  z-index: 1;
+  padding: 4rem 0;
+}
+
+.editor {
+  height: calc(100% - 2rem);
+  width: calc(100% - 2rem);
+  margin: 0;
+  border: 0;
+  font-size: 1rem;
+  background-color: var(--transparency);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.editor:focus-within {
+  outline: 0;
+}
+
+.editor.drag-over {
+  outline: .5rem dashed var(--theme);
+}
+
+h2 {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+section {
+  padding: 1rem;
+}
+
+section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+section li {
+  padding: 1rem;
+  background-color: var(--highlight);
+  position: relative;
+  border-radius: .5rem;
+}
+
+li:not(:last-child)::after {
+  content: "or";
+  position: absolute;
+  bottom: -1rem;
+  z-index: 1;
+  background: var(--highlight);
+  padding: 0 .5rem;
+  left: 1rem;
+}
+
+section li p {
+  margin: 0;
+}
+
+section li p.unsupported {
+  color: red;
+}
+
+.import .input-file .button {
+  display: inline-block;
+}
+
+.import .input-file input {
+  display: none;
+}

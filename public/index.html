@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="/assets/icon-128.png">
+  <title>File Handling on the Web</title>
+</head>
+
+<body>
+  <main>
+    <section class="import">
+      <h2>Importing options</h2>
+      <ul>
+        <li class="input-file">
+          <p>Import a file using an <code>input</code> element.</p>
+          <br>
+          <label class="button" tabindex="0">Browse...
+                    <input type="file" id="input-file" accept="text/*" multiple>
+                </label>
+        </li>
+        <li class="drag-drop">
+          <p>Drag and drop a file into the editor area.</p>
+        </li>
+        <li class="share-target">
+          <p>Install this app as a PWA and then choose it when sharing from other apps.</p>
+        </li>
+        <li class="file-handling">
+          <p>Install this app as a PWA and then open a <code>*.txt</code> file in the operating system.</p>
+        </li>
+        <li class="file-system">
+          <p>Open a file using the <code>File System Access</code> API.</p>
+          <br>
+          <button class="button" id="file-system-open">Open...</button>
+        </li>
+      </ul>
+    </section>
+    <div class="content-wrapper"></div>
+    <section class="export">
+      <h2>Exporting options</h2>
+      <ul>
+        <li>
+          <p>Download using an <code>a</code> anchor element.</p>
+          <br>
+          <button class="button" id="anchor-download">Download</button>
+        </li>
+        <li>
+          <p>Share with other apps with the <code>Web Share</code> API.</p>
+          <br>
+          <button class="button" id="web-share">Share</button>
+        </li>
+        <li>
+          <p>Save back to disk using the <code>File System Access</code> API.</p>
+          <br>
+          <button class="button" id="file-system-save">Save</button>
+          <button class="button" id="file-system-save-as">Save as...</button>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.bundle.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.bundle.js', {
+        scope: '/'
+      }).then(reg => {
+        if (reg.installing) {
+          console.log('Service worker installing');
+        } else if (reg.waiting) {
+          console.log('Service worker installed');
+        } else if (reg.active) {
+          console.log('Service worker active');
+        }
+      }).catch(e => {
+        console.log('Registration failed with ' + e);
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "file-handling",
+  "version": "1.0.0",
+  "description": "Demo app showing all of the ways you can handle files on the web",
+  "scripts": {
+    "build": "npx webpack"
+  },
+  "author": "Patrick Brosset",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.4.2",
+    "webpack": "^5.51.2",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "@types/wicg-file-system-access": "^2020.9.4",
+    "idb-keyval": "^6.0.2"
+  }
+}
