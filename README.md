@@ -7,6 +7,7 @@ The app supports the following features:
 * Importing files:
   * Using a `<input type=file>` input.
   * Using drag and drop.
+  * Pasting a file.
   * As a PWA share target.
   * As a PWA file handler.
   * Using the `File System Access` API.

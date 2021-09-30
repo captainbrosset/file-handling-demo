@@ -47,7 +47,7 @@ body {
 main {
   height: 100%;
   display: grid;
-  grid-template-columns: 15rem 1fr 15rem;
+  grid-template-columns: 20rem 1fr 20rem;
 }
 
 .content-wrapper {
