@@ -1,4 +1,5 @@
 import { emptyEditor, appendContent } from '../editor';
+import { setCurrentFileHandle } from './file-system-access';
 
 function handlePastedFiles(pastedItems: DataTransferItemList) {
     let emptied = false;
@@ -6,6 +7,11 @@ function handlePastedFiles(pastedItems: DataTransferItemList) {
     for (const item of pastedItems) {
         if (item.kind === 'file') {
             if (!emptied) {
+                // Force nullify the current file system access API handle. 
+                // Since we just dropped a file, the previously opened file (if any)
+                // doesn't exist anymore, so we shouldn't allow saving it back to disk .
+                setCurrentFileHandle(null);
+
                 emptyEditor();
                 emptied = true;
             }

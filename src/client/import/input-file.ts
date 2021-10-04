@@ -19,12 +19,7 @@ function handleFile(event: Event) {
     // anymore, so we shouldn't allow saving it back to disk .
     setCurrentFileHandle(null);
 
-    for (let i = 0; i < files.length; i++) {
-        const file = files.item(i);
-        if (!file) {
-            continue;
-        }
-
+    for (const file of files) {
         const reader = new FileReader();
         reader.onload = e => {
             let result = e.target?.result;

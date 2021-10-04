@@ -1,5 +1,6 @@
 import { showUnsupportedMessage } from '../unsupported';
 import { emptyEditor, appendContent } from '../editor';
+import { setCurrentFileHandle } from './file-system-access';
 
 declare global {
     interface Window { launchQueue: any; }
@@ -9,6 +10,10 @@ declare global {
 }
 
 async function handleFile(fileHandle: FileSystemFileHandle) {
+    // Tell the file system access module about this new file handle, this way
+    // we can save changes back to disk directly.
+    setCurrentFileHandle(fileHandle);
+
     const file = await fileHandle.getFile();
     const text = await file.text();
 
